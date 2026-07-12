@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew's Game Portfolio</title>
+    <title>Azy's Game Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #050506; color: #EDEDEF; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050506; 
+            color: #EDEDEF; 
+        }
         
         /* Floating Blob Animation */
         @keyframes float {
@@ -16,7 +20,7 @@
         }
         .blob { animation: float 10s ease-in-out infinite; }
         
-        /* Card Hover Depth */
+        /* Glass Card with Depth */
         .glass-card {
             background: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
             backdrop-filter: blur(10px);
@@ -32,20 +36,19 @@
 </head>
 <body class="min-h-screen overflow-x-hidden">
 
-    <!-- Ambient Background Layers -->
+    <!-- Ambient Background -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#5E6AD2] opacity-[0.15] blur-[150px] rounded-full blob"></div>
         <div class="absolute -bottom-10 left-10 w-[500px] h-[500px] bg-indigo-500 opacity-[0.1] blur-[120px] rounded-full blob" style="animation-delay: -2s;"></div>
     </div>
 
-    <main class="relative z-10 container max-w-2xl mx-auto px-6 py-24 flex flex-col items-center text-center">
+    <main class="relative z-10 container max-w-xl mx-auto px-6 py-24 flex flex-col items-center text-center">
         
-        <!-- Hero Section -->
-        <h1 class="text-6xl font-semibold tracking-[-0.03em] bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent mb-6">
-            Game Portfolio
+        <h1 class="text-5xl md:text-6xl font-semibold tracking-[-0.03em] bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent mb-6">
+            Azy's Game Portfolio
         </h1>
-        <p class="text-lg text-[#8A8F98] mb-12 max-w-md">
-            A collection of web-based interactive projects and prototypes.
+        <p class="text-lg text-[#8A8F98] mb-12">
+            Interactive web-based projects and prototypes.
         </p>
 
         <a href="https://docs.google.com/document/d/1gcKyPsSQbXgGMzxX80ETxZGlkED61dBwJUC7yfzgcdU/edit?tab=t.0" 
@@ -57,44 +60,44 @@
         <div class="w-full space-y-6">
             
             <!-- Clash Royale -->
-            <div class="glass-card rounded-2xl p-6 text-left">
+            <div class="glass-card rounded-2xl p-6 text-center">
                 <h3 class="text-xl font-semibold mb-6">Clash Royale Clone</h3>
-                <a href="https://clashroyale-nu.vercel.app/" class="block w-full py-3 px-4 rounded-lg bg-[#5E6AD2] hover:bg-[#6872D9] text-white text-center font-medium transition-all shadow-[0_0_0_1px_rgba(255,255,255,0.1),0_4px_12px_rgba(94,106,210,0.3)]">
+                <a href="https://clashroyale-nu.vercel.app/" class="block w-full py-3 rounded-lg bg-[#5E6AD2] hover:bg-[#6872D9] text-white font-medium transition-all shadow-[0_4px_12px_rgba(94,106,210,0.3)]">
                     Play
                 </a>
             </div>
 
             <!-- Minecraft 1.0 -->
-            <div class="glass-card rounded-2xl p-6 text-left">
+            <div class="glass-card rounded-2xl p-6 text-center">
                 <h3 class="text-xl font-semibold mb-6">Minecraft 1.0</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <a href="https://minecraft-ashy-rho.vercel.app/" class="w-full py-3 px-4 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-[#EDEDEF] text-center font-medium border border-white/10 transition-all">PC Version</a>
-                    <a href="https://minecraftmobile.vercel.app/" class="w-full py-3 px-4 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-[#EDEDEF] text-center font-medium border border-white/10 transition-all">Mobile Version</a>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="https://minecraft-ashy-rho.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">PC Version</a>
+                    <a href="https://minecraftmobile.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">Mobile Version</a>
                 </div>
             </div>
 
             <!-- Minecraft 2.0 -->
-            <div class="glass-card rounded-2xl p-6 text-left">
+            <div class="glass-card rounded-2xl p-6 text-center">
                 <h3 class="text-xl font-semibold mb-6">Minecraft 2.0</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <a href="https://minecraft2-alpha.vercel.app/" class="w-full py-3 px-4 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-[#EDEDEF] text-center font-medium border border-white/10 transition-all">PC Version</a>
-                    <a href="https://minecraft2mobile.vercel.app/" class="w-full py-3 px-4 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-[#EDEDEF] text-center font-medium border border-white/10 transition-all">Mobile Version</a>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="https://minecraft2-alpha.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">PC Version</a>
+                    <a href="https://minecraft2mobile.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">Mobile Version</a>
                 </div>
             </div>
 
             <!-- Spiderman -->
-            <div class="glass-card rounded-2xl p-6 text-left">
+            <div class="glass-card rounded-2xl p-6 text-center">
                 <h3 class="text-xl font-semibold mb-6">Spiderman Webrunner</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <a href="https://spiderman-dusky.vercel.app/" class="w-full py-3 px-4 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-[#EDEDEF] text-center font-medium border border-white/10 transition-all">PC Version</a>
-                    <a href="https://spidermanmobile.vercel.app/" class="w-full py-3 px-4 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] text-[#EDEDEF] text-center font-medium border border-white/10 transition-all">Mobile Version</a>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="https://spiderman-dusky.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">PC Version</a>
+                    <a href="https://spidermanmobile.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">Mobile Version</a>
                 </div>
             </div>
 
             <!-- Fortify -->
-            <div class="glass-card rounded-2xl p-6 text-left">
+            <div class="glass-card rounded-2xl p-6 text-center">
                 <h3 class="text-xl font-semibold mb-6">Fortify</h3>
-                <a href="https://fortify-six-eta.vercel.app/" class="block w-full py-3 px-4 rounded-lg bg-[#5E6AD2] hover:bg-[#6872D9] text-white text-center font-medium transition-all shadow-[0_0_0_1px_rgba(255,255,255,0.1),0_4px_12px_rgba(94,106,210,0.3)]">
+                <a href="https://fortify-six-eta.vercel.app/" class="block w-full py-3 rounded-lg bg-[#5E6AD2] hover:bg-[#6872D9] text-white font-medium transition-all shadow-[0_4px_12px_rgba(94,106,210,0.3)]">
                     Play
                 </a>
             </div>
@@ -102,7 +105,7 @@
 
         <footer class="mt-24 pt-12 border-t border-white/[0.06]">
             <a href="https://github.com/andrewzyf" class="text-sm text-[#8A8F98] hover:text-[#EDEDEF] transition-colors">
-                View Source on GitHub
+                GitHub Repository
             </a>
         </footer>
     </main>
