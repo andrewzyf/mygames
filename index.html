@@ -6,134 +6,171 @@
     <title>Andrew's Game Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-color: #c9d1d9;
-            --accent-color: #58a6ff;
-            --border-color: #30363d;
-            --mobile-accent: #3fb950;
-            --mobile-border: #238636;
+            /* Minimalist Dark Theme */
+            --bg-color: #0a0a0a;
+            --card-bg: #111111;
+            --text-main: #ededed;
+            --text-muted: #888888;
+            --border-color: #222222;
+            --border-hover: #333333;
+            --btn-bg: #1a1a1a;
+            --btn-hover: #2a2a2a;
+            --accent: #ededed;
         }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 60px 24px;
         }
+
+        header {
+            margin-bottom: 48px;
+        }
+
         h1 {
-            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin: 0 0 24px 0;
+        }
+
+        .doc-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .doc-link:hover {
+            opacity: 0.9;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-muted);
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-            text-align: center;
+            padding-bottom: 12px;
+            margin-top: 48px;
             margin-bottom: 20px;
         }
-        h2 {
-            color: #fff;
-            margin-top: 30px;
-            font-size: 1.4rem;
-        }
+
         .project-list {
             list-style: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
+
         .project-item {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 15px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: border-color 0.2s ease;
         }
+
+        .project-item:hover {
+            border-color: var(--border-hover);
+        }
+
         .project-info {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
+
         .project-name {
-            font-weight: bold;
-            color: #fff;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: var(--text-main);
         }
+
         .project-tag {
             font-size: 0.85rem;
-            color: #8b949e;
+            color: var(--text-muted);
         }
+
         .btn-group {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
+            flex-shrink: 0;
         }
+
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        /* PC Button Styling */
-        .btn-pc {
-            background-color: #21262d;
-            color: var(--accent-color);
+            padding: 8px 16px;
+            background-color: var(--btn-bg);
+            color: var(--text-main);
             border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
-        .btn-pc:hover {
-            background-color: #30363d;
-            border-color: #8b949e;
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+            border-color: #444;
         }
-        /* Mobile Button Styling */
-        .btn-mobile {
-            background-color: #1f2d3d;
-            color: var(--mobile-accent);
-            border: 1px solid var(--mobile-border);
-        }
-        .btn-mobile:hover {
-            background-color: #238636;
-            color: #ffffff;
-        }
-        /* Full Document Action Button */
-        .btn-doc {
-            background-color: #238636;
-            color: #fff;
-            border: 1px solid #2ea44f;
-            padding: 10px 20px;
-            font-size: 0.95rem;
-        }
-        .btn-doc:hover {
-            background-color: #2ea44f;
-        }
+
         footer {
-            margin-top: 50px;
-            text-align: center;
+            margin-top: 64px;
             border-top: 1px solid var(--border-color);
-            padding-top: 20px;
+            padding-top: 32px;
+            text-align: left;
         }
-        @media (max-width: 650px) {
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
             .project-item {
                 flex-direction: column;
-                align-items: stretch;
-                gap: 15px;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 16px;
             }
             .btn-group {
                 width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
             }
-            .btn {
-                flex: 1;
-                min-width: 120px;
-                text-align: center;
-                padding: 10px;
+            .btn-single {
+                grid-column: span 2;
             }
         }
     </style>
@@ -141,24 +178,23 @@
 <body>
 
 <div class="container">
-    <h1>Andrew's Game Portfolio</h1>
-
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="https://docs.google.com/document/d/1gcKyPsSQbXgGMzxX80ETxZGlkED61dBwJUC7yfzgcdU/edit?tab=t.0" target="_blank" class="btn btn-doc">
+    <header>
+        <h1>Andrew's Game Portfolio</h1>
+        <p class="subtitle">A collection of web-based games and projects.</p>
+        <a href="https://docs.google.com/document/d/1gcKyPsSQbXgGMzxX80ETxZGlkED61dBwJUC7yfzgcdU/edit?tab=t.0" target="_blank" class="doc-link">
             View Full Games Document
         </a>
-    </div>
+    </header>
 
     <h2>Supercell Projects</h2>
     <ul class="project-list">
         <li class="project-item">
             <div class="project-info">
                 <span class="project-name">Clash Royale Clone</span>
-                <span class="project-tag">(Optimized for both platforms)</span>
+                <span class="project-tag">Cross-platform optimized</span>
             </div>
             <div class="btn-group">
-                <a href="https://clashroyale-nu.vercel.app/" target="_blank" class="btn btn-pc">PC Version</a>
-                <a href="https://clashroyale-nu.vercel.app/" target="_blank" class="btn btn-mobile">Mobile Version</a>
+                <a href="https://clashroyale-nu.vercel.app/" target="_blank" class="btn btn-single">Play</a>
             </div>
         </li>
     </ul>
@@ -168,20 +204,21 @@
         <li class="project-item">
             <div class="project-info">
                 <span class="project-name">Minecraft 1.0</span>
-                <span class="project-tag">(Legacy version)</span>
+                <span class="project-tag">Legacy version</span>
             </div>
             <div class="btn-group">
-                <a href="https://minecraft-ashy-rho.vercel.app/" target="_blank" class="btn btn-pc">PC Version</a>
+                <a href="https://minecraft-ashy-rho.vercel.app/" target="_blank" class="btn">PC Version</a>
+                <a href="https://minecraftmobile.vercel.app/" target="_blank" class="btn">Mobile Version</a>
             </div>
         </li>
         <li class="project-item">
             <div class="project-info">
                 <span class="project-name">Minecraft 2.0</span>
-                <span class="project-tag">(Full version with save support)</span>
+                <span class="project-tag">Full version with saves</span>
             </div>
             <div class="btn-group">
-                <a href="https://minecraft2-alpha.vercel.app/" target="_blank" class="btn btn-pc">PC Version</a>
-                <a href="https://minecraft2mobile.vercel.app/" target="_blank" class="btn btn-mobile">Mobile Version</a>
+                <a href="https://minecraft2-alpha.vercel.app/" target="_blank" class="btn">PC Version</a>
+                <a href="https://minecraft2mobile.vercel.app/" target="_blank" class="btn">Mobile Version</a>
             </div>
         </li>
     </ul>
@@ -191,11 +228,11 @@
         <li class="project-item">
             <div class="project-info">
                 <span class="project-name">Spiderman Webrunner</span>
-                <span class="project-tag">(Action-packed runner game)</span>
+                <span class="project-tag">Action runner</span>
             </div>
             <div class="btn-group">
-                <a href="https://spiderman-dusky.vercel.app/" target="_blank" class="btn btn-pc">PC Version</a>
-                <a href="https://spidermanmobile.vercel.app/" target="_blank" class="btn btn-mobile">Mobile Version</a>
+                <a href="https://spiderman-dusky.vercel.app/" target="_blank" class="btn">PC Version</a>
+                <a href="https://spidermanmobile.vercel.app/" target="_blank" class="btn">Mobile Version</a>
             </div>
         </li>
     </ul>
@@ -205,19 +242,16 @@
         <li class="project-item">
             <div class="project-info">
                 <span class="project-name">Fortify</span>
-                <span class="project-tag">(Base building mechanics)</span>
+                <span class="project-tag">Base building mechanics</span>
             </div>
             <div class="btn-group">
-                <a href="https://fortify-six-eta.vercel.app/" target="_blank" class="btn btn-pc">PC Version</a>
-                <a href="https://fortify-six-eta.vercel.app/" target="_blank" class="btn btn-mobile">Mobile Version</a>
+                <a href="https://fortify-six-eta.vercel.app/" target="_blank" class="btn btn-single">Play</a>
             </div>
         </li>
     </ul>
 
     <footer>
-        <a href="https://github.com/andrewzyf" target="_blank" class="btn btn-pc" style="padding: 10px 20px;">
-            View more on GitHub
-        </a>
+        <a href="https://github.com/andrewzyf" target="_blank" class="btn">View on GitHub</a>
     </footer>
 </div>
 
