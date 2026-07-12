@@ -6,105 +6,177 @@
     <title>Azy's Game Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #050506; 
-            color: #EDEDEF; 
+        :root {
+            --bg-deep: #020203;
+            --bg-base: #050506;
+            --bg-elevated: #0a0a0c;
+            --surface: rgba(255, 255, 255, 0.05);
+            --surface-hover: rgba(255, 255, 255, 0.08);
+            --foreground: #EDEDEF;
+            --foreground-muted: #8A8F98;
+            --accent: #5E6AD2;
+            --accent-bright: #6872D9;
+            --accent-glow: rgba(94, 106, 210, 0.15);
+            --border-default: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
         }
-        
-        /* Floating Blob Animation */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--foreground);
+            overflow-x: hidden;
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(1deg); }
         }
-        .blob { animation: float 10s ease-in-out infinite; }
-        
+        .blob {
+            animation: float 10s ease-in-out infinite;
+        }
+
         /* Glass Card with Depth */
         .glass-card {
-            background: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-default);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 4px 24px rgba(0, 0, 0, 0.6);
         }
         .glass-card:hover {
             border-color: rgba(94, 106, 210, 0.3);
             transform: translateY(-4px);
-            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 80px rgba(94,106,210,0.1);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 60px rgba(94, 106, 210, 0.08);
+        }
+
+        /* Primary glow button styles */
+        .btn-primary {
+            background-color: var(--accent);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 1px rgba(94, 106, 210, 0.2), 0 4px 12px rgba(94, 106, 210, 0.15);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-bright);
+            box-shadow: 0 0 0 1px rgba(94, 106, 210, 0.4), 0 8px 24px rgba(94, 106, 210, 0.3);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Secondary subtle button styles */
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-default);
+            color: var(--foreground);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: var(--border-hover);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .btn-secondary:active {
+            transform: translateY(0) scale(0.98);
         }
     </style>
 </head>
-<body class="min-h-screen overflow-x-hidden">
+<body class="min-h-screen">
 
-    <!-- Ambient Background -->
+    <!-- Ambient Background Lighting -->
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-[#5E6AD2] opacity-[0.15] blur-[150px] rounded-full blob"></div>
-        <div class="absolute -bottom-10 left-10 w-[500px] h-[500px] bg-indigo-500 opacity-[0.1] blur-[120px] rounded-full blob" style="animation-delay: -2s;"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-[#5E6AD2] opacity-[0.12] blur-[160px] rounded-full blob"></div>
+        <div class="absolute -bottom-40 left-10 w-[600px] h-[600px] bg-indigo-500 opacity-[0.08] blur-[140px] rounded-full blob" style="animation-delay: -3s;"></div>
     </div>
 
     <main class="relative z-10 container max-w-xl mx-auto px-6 py-24 flex flex-col items-center text-center">
         
-        <h1 class="text-5xl md:text-6xl font-semibold tracking-[-0.03em] bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent mb-6">
+        <!-- Header Section -->
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-[-0.03em] bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent mb-4">
             Azy's Game Portfolio
         </h1>
-        <p class="text-lg text-[#8A8F98] mb-12">
+        <p class="text-base text-[#8A8F98] max-w-sm mb-10">
             Interactive web-based projects and prototypes.
         </p>
 
+        <!-- Documentation Button Link -->
         <a href="https://docs.google.com/document/d/1gcKyPsSQbXgGMzxX80ETxZGlkED61dBwJUC7yfzgcdU/edit?tab=t.0" 
-           class="mb-16 px-6 py-2 rounded-full border border-[#5E6AD2]/30 bg-[#5E6AD2]/10 text-[#5E6AD2] hover:bg-[#5E6AD2]/20 transition-all text-sm font-medium">
+           target="_blank"
+           class="mb-14 px-5 py-2 rounded-full border border-[#5E6AD2]/30 bg-[#5E6AD2]/10 text-xs font-semibold tracking-wider text-[#98A1F2] hover:bg-[#5E6AD2]/20 hover:border-[#5E6AD2]/50 transition-all uppercase">
             View Full Documentation
         </a>
 
-        <!-- Projects Grid -->
-        <div class="w-full space-y-6">
+        <!-- Project List Container -->
+        <div class="w-full space-y-5">
             
-            <!-- Clash Royale -->
-            <div class="glass-card rounded-2xl p-6 text-center">
-                <h3 class="text-xl font-semibold mb-6">Clash Royale Clone</h3>
-                <a href="https://clashroyale-nu.vercel.app/" class="block w-full py-3 rounded-lg bg-[#5E6AD2] hover:bg-[#6872D9] text-white font-medium transition-all shadow-[0_4px_12px_rgba(94,106,210,0.3)]">
+            <!-- Clash Royale Clone -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col items-center">
+                <h3 class="text-lg font-semibold tracking-tight text-white mb-4">Clash Royale Clone</h3>
+                <a href="https://clashroyale-nu.vercel.app/" target="_blank" class="btn-primary block w-full py-3 rounded-xl text-sm font-medium text-white text-center">
                     Play
                 </a>
             </div>
 
             <!-- Minecraft 1.0 -->
-            <div class="glass-card rounded-2xl p-6 text-center">
-                <h3 class="text-xl font-semibold mb-6">Minecraft 1.0</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="https://minecraft-ashy-rho.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">PC Version</a>
-                    <a href="https://minecraftmobile.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">Mobile Version</a>
+            <div class="glass-card rounded-2xl p-6 flex flex-col items-center">
+                <h3 class="text-lg font-semibold tracking-tight text-white mb-2">Minecraft 1.0</h3>
+                <p class="text-xs text-[#8A8F98] mb-4">Legacy version</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                    <a href="https://minecraft-ashy-rho.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
+                        PC Version
+                    </a>
+                    <a href="https://minecraftmobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
+                        Mobile Version
+                    </a>
                 </div>
             </div>
 
             <!-- Minecraft 2.0 -->
-            <div class="glass-card rounded-2xl p-6 text-center">
-                <h3 class="text-xl font-semibold mb-6">Minecraft 2.0</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="https://minecraft2-alpha.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">PC Version</a>
-                    <a href="https://minecraft2mobile.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">Mobile Version</a>
+            <div class="glass-card rounded-2xl p-6 flex flex-col items-center">
+                <h3 class="text-lg font-semibold tracking-tight text-white mb-2">Minecraft 2.0</h3>
+                <p class="text-xs text-[#8A8F98] mb-4">Full version with save support</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                    <a href="https://minecraft2-alpha.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
+                        PC Version
+                    </a>
+                    <a href="https://minecraft2mobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
+                        Mobile Version
+                    </a>
                 </div>
             </div>
 
-            <!-- Spiderman -->
-            <div class="glass-card rounded-2xl p-6 text-center">
-                <h3 class="text-xl font-semibold mb-6">Spiderman Webrunner</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="https://spiderman-dusky.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">PC Version</a>
-                    <a href="https://spidermanmobile.vercel.app/" class="w-full py-3 rounded-lg bg-white/[0.05] hover:bg-white/[0.08] border border-white/10 text-white font-medium transition-all">Mobile Version</a>
+            <!-- Spiderman Webrunner -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col items-center">
+                <h3 class="text-lg font-semibold tracking-tight text-white mb-4">Spiderman Webrunner</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+                    <a href="https://spiderman-dusky.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
+                        PC Version
+                    </a>
+                    <a href="https://spidermanmobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
+                        Mobile Version
+                    </a>
                 </div>
             </div>
 
             <!-- Fortify -->
-            <div class="glass-card rounded-2xl p-6 text-center">
-                <h3 class="text-xl font-semibold mb-6">Fortify</h3>
-                <a href="https://fortify-six-eta.vercel.app/" class="block w-full py-3 rounded-lg bg-[#5E6AD2] hover:bg-[#6872D9] text-white font-medium transition-all shadow-[0_4px_12px_rgba(94,106,210,0.3)]">
+            <div class="glass-card rounded-2xl p-6 flex flex-col items-center">
+                <h3 class="text-lg font-semibold tracking-tight text-white mb-4">Fortify</h3>
+                <a href="https://fortify-six-eta.vercel.app/" target="_blank" class="btn-primary block w-full py-3 rounded-xl text-sm font-medium text-white text-center">
                     Play
                 </a>
             </div>
+            
         </div>
 
-        <footer class="mt-24 pt-12 border-t border-white/[0.06]">
-            <a href="https://github.com/andrewzyf" class="text-sm text-[#8A8F98] hover:text-[#EDEDEF] transition-colors">
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 w-full border-t border-white/[0.04]">
+            <a href="https://github.com/andrewzyf" target="_blank" class="text-xs text-[#8A8F98] hover:text-[#EDEDEF] transition-colors tracking-wide">
                 GitHub Repository
             </a>
         </footer>
