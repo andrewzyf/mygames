@@ -6,16 +6,16 @@
     <title>Andrew's Game Portfolio</title>
     <style>
         :root {
-            /* Minimalist Dark Theme */
-            --bg-color: #0a0a0a;
-            --card-bg: #111111;
-            --text-main: #ededed;
-            --text-muted: #888888;
-            --border-color: #222222;
-            --border-hover: #333333;
-            --btn-bg: #1a1a1a;
-            --btn-hover: #2a2a2a;
-            --accent: #ededed;
+            /* Blue-Black Theme */
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --border-hover: #8b949e;
+            --btn-bg: #21262d;
+            --btn-hover: #30363d;
+            --accent: #58a6ff;
         }
         
         body {
@@ -32,6 +32,7 @@
             max-width: 720px;
             margin: 0 auto;
             padding: 60px 24px;
+            text-align: center;
         }
 
         header {
@@ -55,8 +56,8 @@
         .doc-link {
             display: inline-block;
             padding: 8px 16px;
-            background-color: var(--text-main);
-            color: var(--bg-color);
+            background-color: var(--accent);
+            color: #ffffff;
             text-decoration: none;
             border-radius: 6px;
             font-size: 0.875rem;
@@ -91,10 +92,12 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 20px;
+            padding: 24px 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            gap: 16px;
             transition: border-color 0.2s ease;
         }
 
@@ -105,6 +108,7 @@
         .project-info {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 4px;
         }
 
@@ -121,17 +125,19 @@
 
         .btn-group {
             display: flex;
-            gap: 8px;
+            justify-content: center;
+            gap: 12px;
             flex-shrink: 0;
+            width: 100%;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 16px;
+            padding: 8px 24px;
             background-color: var(--btn-bg);
-            color: var(--text-main);
+            color: var(--accent);
             border: 1px solid var(--border-color);
             border-radius: 6px;
             font-size: 0.85rem;
@@ -143,14 +149,14 @@
 
         .btn:hover {
             background-color: var(--btn-hover);
-            border-color: #444;
+            border-color: var(--border-hover);
         }
 
         footer {
             margin-top: 64px;
             border-top: 1px solid var(--border-color);
             padding-top: 32px;
-            text-align: left;
+            text-align: center;
         }
 
         /* Mobile Responsiveness */
@@ -158,19 +164,11 @@
             .container {
                 padding: 40px 20px;
             }
-            .project-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-                padding: 16px;
-            }
             .btn-group {
-                width: 100%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
+                flex-direction: column;
             }
-            .btn-single {
-                grid-column: span 2;
+            .btn {
+                width: 100%;
             }
         }
     </style>
