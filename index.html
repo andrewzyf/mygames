@@ -11,6 +11,8 @@
             --text-color: #c9d1d9;
             --accent-color: #58a6ff;
             --border-color: #30363d;
+            --mobile-accent: #3fb950;
+            --mobile-border: #238636;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -44,43 +46,97 @@
         .project-item {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
+            border-radius: 8px;
+            padding: 18px;
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
         .project-name {
             font-weight: bold;
             color: #fff;
+            font-size: 1.1rem;
         }
         .project-tag {
             font-size: 0.85rem;
             color: #8b949e;
-            margin-left: 10px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        /* PC Button Styling */
+        .btn-pc {
             background-color: #21262d;
             color: var(--accent-color);
-            text-decoration: none;
-            padding: 6px 12px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.2s;
         }
-        .btn:hover {
+        .btn-pc:hover {
             background-color: #30363d;
             border-color: #8b949e;
+        }
+        /* Mobile Button Styling */
+        .btn-mobile {
+            background-color: #1f2d3d;
+            color: var(--mobile-accent);
+            border: 1px solid var(--mobile-border);
+        }
+        .btn-mobile:hover {
+            background-color: #238636;
+            color: #ffffff;
+        }
+        /* Full Document Action Button */
+        .btn-doc {
+            background-color: #238636;
+            color: #fff;
+            border: 1px solid #2ea44f;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+        .btn-doc:hover {
+            background-color: #2ea44f;
         }
         footer {
             margin-top: 50px;
             text-align: center;
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
+        }
+        /* Touch Friendly Layout Adjustments for smaller screens */
+        @media (max-width: 650px) {
+            .project-item {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+            .btn-group {
+                width: 100%;
+            }
+            .btn {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -90,7 +146,7 @@
     <h1>Andrew's Game Portfolio</h1>
 
     <div style="text-align: center; margin-bottom: 30px;">
-        <a href="https://docs.google.com/document/d/1gcKyPsSQbXgGMzxX80ETxZGlkED61dBwJUC7yfzgcdU/edit?tab=t.0" target="_blank" class="btn" style="background-color: #238636; color: #fff; border-color: #2ea44f;">
+        <a href="https://docs.google.com/document/d/1gcKyPsSQbXgGMzxX80ETxZGlkED61dBwJUC7yfzgcdU/edit?tab=t.0" target="_blank" class="btn btn-doc">
             📄 View Full Games Document
         </a>
     </div>
@@ -98,47 +154,70 @@
     <h2>Supercell Projects</h2>
     <ul class="project-list">
         <li class="project-item">
-            <span class="project-name">Clash Royale Clone</span>
-            <a href="https://clashroyale-nu.vercel.app/" target="_blank" class="btn">Play here</a>
+            <div class="project-info">
+                <span class="project-name">Clash Royale Clone</span>
+                <span class="project-tag">(Keyboard controls recommended)</span>
+            </div>
+            <div class="btn-group">
+                <a href="https://clashroyale-nu.vercel.app/" target="_blank" class="btn btn-pc">💻 Play on PC</a>
+            </div>
         </li>
     </ul>
 
     <h2>Minecraft Projects</h2>
     <ul class="project-list">
         <li class="project-item">
-            <div>
+            <div class="project-info">
                 <span class="project-name">Minecraft 1.0</span>
                 <span class="project-tag">(Legacy version)</span>
             </div>
-            <a href="https://minecraft-ashy-rho.vercel.app/" target="_blank" class="btn">Play here</a>
+            <div class="btn-group">
+                <a href="https://minecraft-ashy-rho.vercel.app/" target="_blank" class="btn btn-pc">💻 Play on PC</a>
+            </div>
         </li>
         <li class="project-item">
-            <div>
+            <div class="project-info">
                 <span class="project-name">Minecraft 2.0</span>
                 <span class="project-tag">(Full version with save support)</span>
             </div>
-            <a href="https://minecraft2-alpha.vercel.app/" target="_blank" class="btn">Play here</a>
+            <div class="btn-group">
+                <a href="https://minecraft2-alpha.vercel.app/" target="_blank" class="btn btn-pc">💻 PC Version</a>
+                <a href="https://minecraft2mobile.vercel.app/" target="_blank" class="btn btn-mobile">📱 Mobile Version</a>
+            </div>
         </li>
     </ul>
 
     <h2>Other Projects</h2>
     <ul class="project-list">
         <li class="project-item">
-            <span class="project-name">Spiderman Webrunner</span>
-            <a href="https://spiderman-dusky.vercel.app/" target="_blank" class="btn">Play here</a>
+            <div class="project-info">
+                <span class="project-name">Spiderman Webrunner</span>
+                <span class="project-tag">(Action-packed runner game)</span>
+            </div>
+            <div class="btn-group">
+                <a href="https://spiderman-dusky.vercel.app/" target="_blank" class="btn btn-pc">💻 PC Version</a>
+                <a href="https://spidermanmobile.vercel.app/" target="_blank" class="btn btn-mobile">📱 Mobile Version</a>
+            </div>
         </li>
     </ul>
 
     <h2>Personal Projects</h2>
     <ul class="project-list">
         <li class="project-item">
-            <span class="project-name">Fortify</span>
-            <a href="https://fortify-six-eta.vercel.app/" target="_blank" class="btn">Play here</a>
+            <div class="project-info">
+                <span class="project-name">Fortify</span>
+                <span class="project-tag">(Base building mechanics)</span>
+            </div>
+            <div class="btn-group">
+                <a href="https://fortify-six-eta.vercel.app/" target="_blank" class="btn btn-pc">💻 Play on PC</a>
+            </div>
         </li>
     </ul>
 
     <footer>
-        <a href="https://github.com/andrewzyf" target="_blank" class="btn">View more on GitHub</a>
+        <a href="https://github.com/andrewzyf" target="_blank" class="btn btn-pc" style="padding: 10px 20px;">
+            🐈 View more on GitHub
+        </a>
     </footer>
 </div>
 
