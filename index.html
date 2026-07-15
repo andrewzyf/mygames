@@ -12,7 +12,7 @@
             --bg-deep: #020203;
             --bg-base: #050506;
             --bg-elevated: #0a0a0c;
-            --surface: rgba(255, 255, 255, 0.05);
+            --surface: rgba(255, 255, 255, 0.04);
             --surface-hover: rgba(255, 255, 255, 0.08);
             --foreground: #EDEDEF;
             --foreground-muted: #8A8F98;
@@ -51,6 +51,16 @@
             border-color: rgba(94, 106, 210, 0.3);
             transform: translateY(-4px);
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 60px rgba(94, 106, 210, 0.08);
+        }
+
+        /* Highlight border for Featured Card */
+        .featured-card {
+            border: 1px solid rgba(94, 106, 210, 0.4);
+            box-shadow: 0 0 0 1px rgba(94, 106, 210, 0.1), 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(94, 106, 210, 0.05);
+        }
+        .featured-card:hover {
+            border-color: rgba(94, 106, 210, 0.7);
+            box-shadow: 0 0 0 1px rgba(94, 106, 210, 0.2), 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 80px rgba(94, 106, 210, 0.15);
         }
 
         /* Primary glow button styles */
@@ -115,6 +125,18 @@
         <!-- Project List Container -->
         <div class="w-full space-y-5">
             
+            <!-- FEATURED GAME: Butterfly Chaos -->
+            <div class="glass-card featured-card rounded-2xl p-6 flex flex-col items-center relative overflow-hidden">
+                <span class="absolute top-4 right-4 bg-[#5E6AD2]/10 border border-[#5E6AD2]/30 text-[#98A1F2] text-[10px] font-semibold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    Featured Game
+                </span>
+                <h3 class="text-xl font-semibold tracking-tight text-white mt-2 mb-1">Butterfly Chaos</h3>
+                <p class="text-xs text-[#8A8F98] mb-5">Latest Release</p>
+                <a href="https://butterflychaos.vercel.app/" target="_blank" class="btn-primary block w-full py-3 rounded-xl text-sm font-medium text-white text-center">
+                    Play
+                </a>
+            </div>
+
             <!-- Clash Royale Clone -->
             <div class="glass-card rounded-2xl p-6 flex flex-col items-center">
                 <h3 class="text-lg font-semibold tracking-tight text-white mb-4">Clash Royale Clone</h3>
@@ -131,9 +153,12 @@
                     <a href="https://minecraft-ashy-rho.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
                         PC Version
                     </a>
-                    <a href="https://minecraftmobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
-                        Mobile Version
-                    </a>
+                    <div class="flex flex-col items-center w-full">
+                        <a href="https://minecraftmobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center w-full">
+                            Mobile Version
+                        </a>
+                        <p class="text-[10px] text-[#8A8F98] mt-1.5 font-medium">Still working on this mobile version</p>
+                    </div>
                 </div>
             </div>
 
@@ -145,9 +170,12 @@
                     <a href="https://minecraft2-alpha.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
                         PC Version
                     </a>
-                    <a href="https://minecraft2mobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center">
-                        Mobile Version
-                    </a>
+                    <div class="flex flex-col items-center w-full">
+                        <a href="https://minecraft2mobile.vercel.app/" target="_blank" class="btn-secondary py-3 rounded-xl text-sm font-medium text-center w-full">
+                            Mobile Version
+                        </a>
+                        <p class="text-[10px] text-[#8A8F98] mt-1.5 font-medium">Still working on this mobile version</p>
+                    </div>
                 </div>
             </div>
 
